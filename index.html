@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed Elzainy</title>
+  <link rel="icon" href="https://imguser.free.nf/uploads/0_1790321822_6ab6249e6bcc5_WhatsAppImage2026-09-25at9.40.53AM1-modified.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131a2b;
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent2: #a78bfa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+
+    .photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.15);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    /* Nav */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .nav button {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 9px 20px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .nav button:hover {
+      border-color: #334155;
+      color: var(--text);
+    }
+
+    .nav button.active {
+      background: rgba(34, 211, 238, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Pages / Sections */
+    .page {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      border-radius: 2px;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      gap: 14px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+
+    .project:hover {
+      border-color: #334155;
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .project h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* About + Contact side by side */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .contact-list li {
+      margin-bottom: 12px;
+    }
+
+    .contact-list a {
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .contact-list a:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0 30px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .photo { width: 110px; height: 110px; }
+      header { padding: 40px 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="ahmed.jpg" alt="Ahmed Elzainy" class="photo">
+      <h1>Ahmed Elzainy</h1>
+      <p class="tagline">Build Professional Tools for Teams and companies</p>
+
+      <nav class="nav">
+        <button class="active" data-page="work">Work</button>
+        <button data-page="about">About</button>
+        <button data-page="contact">Contact</button>
+      </nav>
+    </header>
+
+    <!-- Work Page -->
+    <div id="work" class="page active">
+      <h2 class="section-title">Selected Work</h2>
+      <div class="projects">
+        <article class="project">
+          <div class="project-header">
+            <h3>Canned Tool</h3>
+            <span class="badge">Internal Tool</span>
+          </div>
+          <p>
+            Internal tool for the digital chat team. Organizes and delivers ready-to-use canned responses from structured sheets, significantly reducing response time for agents.
+          </p>
+          <a href="https://cand-chat.info/Cand-Chat" target="_blank" rel="noopener" class="project-link">
+            View Tool →
+          </a>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3>Agent Lite</h3>
+            <span class="badge">V3.1</span>
+          </div>
+          <p>
+            Smart workspace for support agents. Features auto-search & copy for shortcuts, live timer, Excel import/export, and quick screenshots. Built to make agents faster and more efficient.
+          </p>
+          <a href="https://agent.cand-chat.info/agent" target="_blank" rel="noopener" class="project-link">
+            View Tool →
+          </a>
+        </article>
+
+        <article class="project">
+          <div class="project-header">
+            <h3>Digital Support CRM</h3>
+            <span class="badge">CRM</span>
+          </div>
+          <p>
+            Advanced workspace for support operations. Combines service tools, daily usage tracking, bill explanations, bonuses, and escalation matrix in one place for clearer metrics and better performance monitoring.
+          </p>
+          <a href="https://crm.cand-chat.info/crm" target="_blank" rel="noopener" class="project-link">
+            View Tool →
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p>
+          I build professional tools, dashboards, and data systems that help support teams and companies work faster and more accurately.
+        </p>
+        <p style="margin-top: 14px;">
+          Focused on internal tools that solve real operational problems — from canned responses and agent productivity to full support CRM workspaces.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+      <h2 class="section-title">Contact us</h2>
+      <div class="card">
+        <ul class="contact-list">
+          <li>
+            <a href="tel:+201555301042">📞 &nbsp; 01555301042</a>
+          </li>
+          <li>
+            <a href="mailto:a7medelzainy@gmail.com">✉️ &nbsp; a7medelzainy@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      Ahmed Elzainy © 2026
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.nav button');
+    const pages = document.querySelectorAll('.page');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // remove active
+        buttons.forEach(b => b.classList.remove('active'));
+        pages.forEach(p => p.classList.remove('active'));
+
+        // set active
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.page).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
