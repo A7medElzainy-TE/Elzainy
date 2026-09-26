@@ -28,7 +28,7 @@ A lightweight, production-ready static portfolio focused on internal tools and s
 - Project content: `index.html`
 - Styling: `assets/css/styles.css`
 - Theme/navigation behavior: `assets/js/main.js`
-- Profile photo: replace `assets/images/ahmed.jpg` and `assets/images/ahmed.webp`
+- Profile photo: replace `assets/images/ahmed.jpg`
 - Contact details: search in `index.html` for the email and phone number.
 
 ## Performance notes
